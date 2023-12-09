@@ -293,6 +293,8 @@ function FactList({ facts }) {
 }
 
 function Fact({ fact }) {
+
+  
   return (
     <li className="fact">
       <p>
