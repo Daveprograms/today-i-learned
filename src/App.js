@@ -131,7 +131,7 @@ function Header({ showForm, setShowForm }) {
 }
 
 const CATEGORIES = [
-  { name: "Programing", color: "#3b82f6" },
+  { name: "Programming", color: "#3b82f6" },
   { name: "Biology", color: "#16a34a" },
   { name: "Chemisty", color: "#ef4444" },
   { name: "Physics", color: "#eab308" },
