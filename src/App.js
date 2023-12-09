@@ -131,14 +131,15 @@ function Header({ showForm, setShowForm }) {
 }
 
 const CATEGORIES = [
-  { name: "technology", color: "#3b82f6" },
-  { name: "science", color: "#16a34a" },
-  { name: "finance", color: "#ef4444" },
-  { name: "society", color: "#eab308" },
-  { name: "entertainment", color: "#db2777" },
-  { name: "health", color: "#14b8a6" },
-  { name: "history", color: "#f97316" },
-  { name: "news", color: "#8b5cf6" },
+  { name: "Programing", color: "#3b82f6" },
+  { name: "Biology", color: "#16a34a" },
+  { name: "Chemisty", color: "#ef4444" },
+  { name: "Physics", color: "#eab308" },
+  { name: "Database", color: "#db2777" },
+  { name: "News", color: "#14b8a6" },
+  { name: "Random", color: "#f97316" },
+  { name: "World-wide-news", color: "#8b5cf6" },
+  { name: "Cyber-Security", color: "black" },
 ];
 
 function isValidHttpUrl(string) {
@@ -177,7 +178,7 @@ function NewFactForm({ setFacts, setShowForm }) {
         .from("facts")
         .insert(newFact)
         .select();
-        setIsUploading(false);
+      setIsUploading(false);
 
       if (insertError) {
         console.error("Error inserting fact:", insertError);
@@ -204,7 +205,8 @@ function NewFactForm({ setFacts, setShowForm }) {
         value={text}
         onChange={(e) => {
           setText(e.target.value);
-        }}disabled={isUploading}
+        }}
+        disabled={isUploading}
       />
       <span>{200 - textLength}</span>
       {/* <input value={source} type="text" */}
@@ -293,11 +295,11 @@ function FactList({ facts }) {
 }
 
 function Fact({ fact }) {
-
-  
+  const isDisputed = fact.votesinteresting + fact.votesmindblowing < fact.votesfalse;
   return (
     <li className="fact">
       <p>
+        {isDisputed ? <span className="Disputed"> [Disputed⛔]</span>: null}
         {fact.text}
         <a className="source" href={fact.source} target="_blank">
           (Source)
